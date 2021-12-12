@@ -1,5 +1,5 @@
 {
-  "pluginAlias": "ExampleHomebridgePlugin",
+  "pluginAlias": "NgenicTune",
   "pluginType": "platform",
   "singular": true,
   "schema": {
@@ -9,7 +9,13 @@
         "title": "Name",
         "type": "string",
         "required": true,
-        "default": "Example Dynamic Platform"
+        "default": "Ngenic Tune"
+      },
+      "pat": {
+        "title": "Personal access token",
+        "type": "string",
+        "required": true,
+        "default": ""
       }
     }
   }
