@@ -26,7 +26,7 @@ export class NodeAccessory {
 
   async getCurrentTemperature(): Promise<CharacteristicValue> {
     const tuneUuid = this.accessory.context.tune.tuneUuid;
-    const nodeUuid = this.accessory.context.tune.nodeUuid;
+    const nodeUuid = this.accessory.context.room.nodeUuid;
     const measurement = await this.platform.ngenicApi.getMeasurement(tuneUuid, nodeUuid);
     return measurement.value;
   }
