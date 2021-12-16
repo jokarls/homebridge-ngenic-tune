@@ -1,14 +1,16 @@
 import { API, DynamicPlatformPlugin, Logger, PlatformAccessory, PlatformConfig, Service, Characteristic } from 'homebridge';
 
 import { PLATFORM_NAME, PLUGIN_NAME } from './settings';
-import { ExamplePlatformAccessory } from './platformAccessory';
+import { NodeAccessory } from './nodeAccessory';
+
+import { Node } from './model';
 
 /**
  * HomebridgePlatform
  * This class is the main constructor for your plugin, this is where you should
  * parse the user config and discover/register accessories with Homebridge.
  */
-export class ExampleHomebridgePlatform implements DynamicPlatformPlugin {
+export class NgenicTunePlatform implements DynamicPlatformPlugin {
   public readonly Service: typeof Service = this.api.hap.Service;
   public readonly Characteristic: typeof Characteristic = this.api.hap.Characteristic;
 
@@ -51,6 +53,15 @@ export class ExampleHomebridgePlatform implements DynamicPlatformPlugin {
    */
   discoverDevices() {
 
+    const pat = this.config.pat;
+
+    //Fetch tunes
+    const tunes = [];
+
+    //Fetch nodes
+    const nodes = [];
+
+
     // EXAMPLE ONLY
     // A real plugin you would discover accessories from the local network, cloud services
     // or a user-defined array in the platform config.
@@ -87,7 +98,7 @@ export class ExampleHomebridgePlatform implements DynamicPlatformPlugin {
 
         // create the accessory handler for the restored accessory
         // this is imported from `platformAccessory.ts`
-        new ExamplePlatformAccessory(this, existingAccessory);
+        new NodeAccessory(this, existingAccessory);
 
         // it is possible to remove platform accessories at any time using `api.unregisterPlatformAccessories`, eg.:
         // remove platform accessories when no longer present
@@ -106,7 +117,7 @@ export class ExampleHomebridgePlatform implements DynamicPlatformPlugin {
 
         // create the accessory handler for the newly create accessory
         // this is imported from `platformAccessory.ts`
-        new ExamplePlatformAccessory(this, accessory);
+        new NodeAccessory(this, accessory);
 
         // link the accessory to your platform
         this.api.registerPlatformAccessories(PLUGIN_NAME, PLATFORM_NAME, [accessory]);
