@@ -14,3 +14,7 @@ export interface Room {
     name: string;
     nodeUuid: string;
 }
+
+export interface Measurement {
+    value: string;
+}

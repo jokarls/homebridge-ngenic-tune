@@ -1,5 +1,5 @@
 import axios, { AxiosInstance } from 'axios';
-import { Room, Tune } from './model';
+import { Measurement, Room, Tune } from './model';
 
 export class Api {
 
@@ -19,6 +19,11 @@ export class Api {
 
   public async getRooms(tuneId: string): Promise<Room[]> {
     const response = await this.client.get<Room[]>(`/tunes/${tuneId}/rooms`);
+    return response.data;
+  }
+
+  public async getMeasurement(tuneId: string, nodeId: string): Promise<Measurement> {
+    const response = await this.client.get<Measurement>(`/tunes/${tuneId}/measurements/${nodeId}/latest?type=temperature_C`);
     return response.data;
   }
 }
