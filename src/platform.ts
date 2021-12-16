@@ -3,8 +3,6 @@ import { API, DynamicPlatformPlugin, Logger, PlatformAccessory, PlatformConfig, 
 import { PLATFORM_NAME, PLUGIN_NAME } from './settings';
 import { NodeAccessory } from './nodeAccessory';
 
-import { Node } from './model';
-
 /**
  * HomebridgePlatform
  * This class is the main constructor for your plugin, this is where you should
@@ -52,15 +50,6 @@ export class NgenicTunePlatform implements DynamicPlatformPlugin {
    * must not be registered again to prevent "duplicate UUID" errors.
    */
   discoverDevices() {
-
-    const pat = this.config.pat;
-
-    //Fetch tunes
-    const tunes = [];
-
-    //Fetch nodes
-    const nodes = [];
-
 
     // EXAMPLE ONLY
     // A real plugin you would discover accessories from the local network, cloud services

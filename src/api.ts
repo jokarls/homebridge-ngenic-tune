@@ -1,5 +1,5 @@
 import axios, { AxiosInstance } from 'axios';
-import { Room } from './model';
+import { Room, Tune } from './model';
 
 export class Api {
 
@@ -12,8 +12,9 @@ export class Api {
     });
   }
 
-  public async getTunes(): Promise<Tunes[]> {
-
+  public async getTunes(): Promise<Tune[]> {
+    const response = await this.client.get<Tune[]>('/tunes');
+    return response.data;
   }
 
   public async getRooms(tuneId: string): Promise<Room[]> {

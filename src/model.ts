@@ -5,7 +5,8 @@ export class Node {
 }
 
 export interface Tune {
-
+    tuneUuid: string;
+    tuneName: string;
 }
 
 export interface Room {
