@@ -1,9 +1,3 @@
-export class Node {
-  constructor(readonly tuneId: string) {
-    this.tuneId = tuneId;
-  }
-}
-
 export interface Tune {
     tuneUuid: string;
     tuneName: string;

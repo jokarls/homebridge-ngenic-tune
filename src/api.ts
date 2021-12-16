@@ -1,7 +1,7 @@
 import axios, { AxiosInstance } from 'axios';
 import { Measurement, Room, Tune } from './model';
 
-export class Api {
+export class NgenicApi {
 
   private client: AxiosInstance;
 

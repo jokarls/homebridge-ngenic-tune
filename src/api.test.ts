@@ -1,6 +1,6 @@
 import Axios from 'axios';
 
-import { Api } from './api';
+import { NgenicApi } from './api';
 
 jest.mock('axios');
 const mockAxios = Axios as jest.Mocked<typeof Axios>;
@@ -52,13 +52,9 @@ beforeAll(() => {
 
 describe('Api', () => {
 
-  afterEach(() => {
-    jest.clearAllMocks();
-  });
-
   describe('getTunes', () => {
     it('should return a list with of tunes', async () => {
-      const api = new Api('https://app.ngenic.se/api/v3', 'test');
+      const api = new NgenicApi('https://app.ngenic.se/api/v3', 'test');
       await expect(api.getTunes()).resolves.toEqual(tunesData);
       expect(mockAxios.get).toHaveBeenCalledWith('/tunes');
     });
@@ -66,7 +62,7 @@ describe('Api', () => {
 
   describe('getRooms', () => {
     it('should return a list of rooms', async () => {
-      const api = new Api('https://app.ngenic.se/api/v3', 'test');
+      const api = new NgenicApi('https://app.ngenic.se/api/v3', 'test');
       await expect(api.getRooms('1')).resolves.toEqual(roomsData);
       expect(mockAxios.get).toHaveBeenCalledWith('/tunes/1/rooms');
     });
@@ -75,7 +71,7 @@ describe('Api', () => {
 
   describe('getMeasurement', () => {
     it('should return a measurement', async () => {
-      const api = new Api('https://app.ngenic.se/api/v3', 'test');
+      const api = new NgenicApi('https://app.ngenic.se/api/v3', 'test');
       await expect(api.getMeasurement('1', '2')).resolves.toEqual(measurementData);
       expect(mockAxios.get).toHaveBeenCalledWith('/tunes/1/measurements/2/latest?type=temperature_C');
     });
