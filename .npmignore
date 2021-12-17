@@ -19,7 +19,7 @@ tsconfig.json
 nodemon.json
 
 # babel
-babel.cofig.js
+babel.config.js
 
 # jest 
 jest.config.ts
