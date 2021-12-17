@@ -1,6 +1,5 @@
 {
-  "private": true,
-  "displayName": "Ngenic Tune",
+  "displayName": "Homebridge Ngenic Tune",
   "name": "@jokarls/homebridge-ngenic-tune",
   "version": "1.0.0",
   "description": "Homebridge plugin for Ngenic Tune",

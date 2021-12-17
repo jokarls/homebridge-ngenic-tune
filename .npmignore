@@ -18,6 +18,13 @@ tsconfig.json
 # nodemon
 nodemon.json
 
+# babel
+babel.cofig.js
+
+# jest 
+jest.config.ts
+
+
 # Logs
 logs
 *.log
